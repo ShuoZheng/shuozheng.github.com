@@ -1,0 +1,338 @@
+html 	{ 
+		min-width: 966px;
+		//background: #f9f9f9;
+		overflow:scroll;
+		overflow-x:hidden;
+		background-color:rgb(255, 255, 234);
+		background-color: #D2F4FE;
+		}
+
+body	{
+		margin: 0;
+		padding: 0;
+		border: 0;
+		text-align: center;
+		font: 12px Verdana, Arial, Helvetica, sans-serif;
+		}
+		
+div#wrapper	{
+		margin: 0 auto;
+		padding: 0;
+		border: 0;
+		width: 966px;
+		text-align: left;
+		//background: transparent url(/i/site_wrapper.gif) top left repeat-y;
+		//background-color: white;
+		}
+		
+/*div#side	{
+		float: left;
+		margin: 0 0 0 6px;
+		padding: 0;
+		border: 0;
+		width: 150px;
+		background : transparent;
+		}*/
+		
+div#side	{
+	float: left;
+	width: 200px;
+	background-color:  #fff;
+   margin:  10px 10px 10px 10px;
+   padding:  5px 5px;
+   moz-border-radius:  5px;
+   webkit-moz-border-radius:  5px;
+   border-radius:  5px;
+   -webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   -moz-box-shadow:  0px 1px 3px #A8ABAB;
+   box-shadow:  0px 1px 3px #A8ABAB;
+	}
+
+div#side img {
+	width: 200px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+html>body div#side {
+		margin-left: 12px;
+		}
+		
+div#main {
+		float: left;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		//width: 637px;
+		width: 704px;
+		background: transparent;
+		}
+		
+/*div#footer	{
+		clear: both;
+		//margin: 0;
+		padding: 0;
+		//margin-left: 12px;
+		//width: 937px;
+		width: 966px;
+		height: 60px;
+		//background: #b6b6b6;
+		background: #0AA9FF;	
+		//border-top: 10px solid #fff;
+		//border-bottom: 10px solid #fff;
+		text-align: center;
+		}*/
+		
+div#footer	{
+		clear: both;
+		width: 966px;
+		height: 80px;
+		background: #0AA9FF;	
+		text-align: center;
+		
+		margin-top: 10px;
+		margin-bottom: 10px; 
+   	//padding:  5px 5px;
+   	moz-border-radius:  5px;
+   	webkit-moz-border-radius:  5px;
+   	border-radius:  5px;
+   	-webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   	-moz-box-shadow:  0px 1px 3px #A8ABAB;
+   	box-shadow:  0px 1px 3px #A8ABAB;
+		}		
+
+div#footer p	{
+		margin: 2px 10px 0 10px;
+		font-size: 12px;
+		}		
+		
+/* ----------------------------------- header ----------------------------------- */
+/*div#header, div#header_index	{
+		//margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		//width: 937px;
+		width: 966px;
+		height: 90px;
+		//background: #b6b6b6;
+		//background: rgb(230, 235, 234);
+		background: #0AA9FF;	
+		}*/
+		
+div#header, div#header_index	{
+		padding: 0;
+		border: 0;
+		width: 966px;
+		height: 140px;
+		background: #0AA9FF;
+		
+		margin-top: 10px;
+		margin-bottom: 10px; 0px, 10p
+   	moz-border-radius:  5px;
+   	webkit-moz-border-radius:  5px;
+   	border-radius:  5px;
+   	-webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   	-moz-box-shadow:  0px 1px 3px #A8ABAB;
+   	box-shadow:  0px 1px 3px #A8ABAB;	
+		}
+
+div#header h1{
+	 float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+div#header a
+{
+	font-weight: bold;
+	color : black;
+	text-decoration: none;
+	font-size: 60px;
+}
+
+/* ----------------------------------- navline ----------------------------------- */		
+div#navline	{
+float: right;
+		height: 40px;
+		//width: 937px;
+		//margin: 0 0 0 12px;
+		padding: 0;
+		border: 0;
+		//background: #fff;
+		margin-top: 100px;
+		margin-right: 10px;
+		}	
+		
+div#navline ul#menu	{
+		height: 40px;
+		//width: 937px;
+		//background: transparent url(/i/site_bg.gif) top left no-repeat;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		}
+		
+/*div#navline ul#menu li	{
+		margin-top: 6px;
+		padding-left: 20px;
+		padding-right: 20px;
+		list-style:none;
+		float: left;
+		}*/
+		
+div#navline ul#menu li	{
+		//margin-top: 6px;
+		margin: 6px;
+		padding-left: 10px;
+		padding-right: 10px;
+		list-style:none;
+		float: left;
+		
+		moz-border-radius:  5px;
+   	webkit-moz-border-radius:  5px;
+   	border-radius:  5px;
+   	-webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   	-moz-box-shadow:  0px 1px 3px #A8ABAB;
+   	box-shadow:  0px 1px 3px #A8ABAB;	
+   	background-color: #FFF
+		}		
+		
+div#navline ul#menu a {
+	font-size: 20px;
+}		
+		
+
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+	background : transparent; 
+	}
+
+a:hover {
+	text-decoration : underline;
+	color: #ff0000;
+	background : transparent; 
+	}
+
+a:active {
+	text-decoration : underline;
+	color : #ff0000;
+	background : transparent;  
+	}
+	
+div#side a:link, div#side a:visited	{
+	text-decoration : none;
+	color:#000;
+	background : transparent;
+	} 
+
+div#side a:hover	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}
+
+div#side a:active	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}
+	
+div#footer a:link, div#footer a:visited	{
+	text-decoration : none;
+	color:#000;
+	background : transparent;
+	} 
+
+div#footer a:hover	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}
+
+div#footer a:active	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}	
+
+/* ----------------------------------- Typography ----------------------------------- */
+
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+	}
+
+div#main h1	{
+	margin:15px 0 0 15px;
+	font-size: 20px;
+	font-family: 'Î¢ÈíÑÅºÚ';
+	}
+
+div#main h2	{
+	font-size: 14px;
+	}
+
+div#main h3,  div#main h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+	}
+
+div#side h2	{
+	font-size: 16px;
+	margin:10px 0 0 12px;
+	}
+	
+div#side li {
+	margin:5px 0 0 0;
+	font-weight:bold;
+	font-size:12px;
+	}
+		
+p	{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+	}		
+	
+div#main ul {
+	margin-top:10px;
+	margin-bottom:0;
+	}
+
+div#main li {
+	margin-top:3px;
+	}
+
+div#side ul, div#side li {
+	margin: 0;
+	padding: 0;
+	}
+
+div#side ul {
+	margin-left: 12px;
+	}
+
+div#side li {
+	list-style: none;
+	}
+
+div#navsecond li.list_apart {
+	margin-top:10px;
+	}	
+	
+//////
+.post {
+	background-color: #FFF
+	margin:  10px 10px 10px 10px;
+   padding:  5px 5px;
+   moz-border-radius:  5px;
+   webkit-moz-border-radius:  5px;
+   border-radius:  5px;
+   -webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   -moz-box-shadow:  0px 1px 3px #A8ABAB;
+   box-shadow:  0px 1px 3px #A8ABAB;
+}	
+	

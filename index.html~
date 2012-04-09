@@ -8,8 +8,10 @@
 		<link href="icons/favicon.ico" rel="shortcut icon"/ >		 
 		
 		<!-- Include stylesheet files -->
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"/> -->
 		<!-- Highlight js stylesheet file -->
+		
+		<link rel="stylesheet" type="text/css" href="css/test.css"/>
 		<link rel="stylesheet" type="text/css" href="css/default.css"/>
 		
 	</head>
@@ -48,8 +50,7 @@
 				</ul>
 			</div>
 			<div id="main">	
-			<h2>This is main</h2>
-			<p>building...</p>		
+			<h2>This is main</h2>		
 			</div>		
 			<div id="footer">
 			<h2>This is footer</h2>
