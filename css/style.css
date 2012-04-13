@@ -140,27 +140,38 @@ div#header, div#header_index	{
 div#header h1{
 	 float: left;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    width: 880px;
+    height: 80px;
+    
 }
 
-div#header a
+div#header h1 a
 {
 	font-weight: bold;
 	color : black;
 	text-decoration: none;
-	font-size: 50px;
+	font-size: 60px;
+}
+
+div#header h1 small{
+    font-size: 12px;
+    margin-left: 10px;
 }
 
 /* ----------------------------------- navline ----------------------------------- */		
 div#navline	{
-float: right;
+		float: right;
 		height: 40px;
 		//width: 937px;
 		//margin: 0 0 0 12px;
 		padding: 0;
 		border: 0;
 		//background: #fff;
-		margin-top: 100px;
+		margin-top: 5px;
 		margin-right: 10px;
 		}	
 		
