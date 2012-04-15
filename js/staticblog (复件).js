@@ -1,5 +1,4 @@
-var blog = 
-{
+var blog = {
     /* member variable */
     posts: null,
     title: document.title,
@@ -14,30 +13,20 @@ var blog =
     initPostTags: function() 
     {
         var all_tags = [];
-        $(blog.posts).each
-        ( 
-        		function() 
-        		{
-            	all_tags = all_tags.concat(this.tags);
-		      }
-        );
-        
+        $(blog.posts).each(function() {
+            all_tags = all_tags.concat(this.tags);
+        });
         blog.post_tags = {};
-        
-        $(all_tags).each
-        (
-				function() 
-				{
-            	if(blog.post_tags[this] == undefined) {
+        $(all_tags).each(function() {
+            if(blog.post_tags[this] == undefined) {
                 blog.post_tags[this] = 1;
-            	} else {
+            } else {
                 blog.post_tags[this] += 1;
-            	}
-				}
-			);
+            }
+        });
     },
     
-    filterPost: function( tags )
+    filterPost: function(tags)
     {
         var should_show = false;
         if(blog.filter_tags.length > 0){
@@ -62,68 +51,44 @@ var blog =
         return should_show;
     },
     
-    updateIndexItem: function( post_index_data )
+    updateIndexItem: function(post_index_data)
     {
-        //var $item_value_list = $("<ul class='index-item-row'>").appendTo( $("#index-list") );
-        var $item_value_list = $("<ul class='index-item-row'>").appendTo( $("#blogList") );
+        var $item_value_list = $("<ul class='index-item-row'>").appendTo($("#index-list"));
             
-        /*var $post_title = $("<li class='post-title'>").appendTo( $item_value_list );
-        $("<a>").appendTo( $post_title ).text( post_index_data.title ).attr( "href", "#!" + post_index_data.path );
+        var $post_title = $("<li class='post-title'>").appendTo($item_value_list);
+        $("<a>").appendTo($post_title).text(post_index_data.title).attr("href", "#!"+post_index_data.path);
         
-        $("<li class='post-date'>").appendTo( $item_value_list ).text( post_index_data.date );
+        $("<li class='post-date'>").appendTo($item_value_list).text(post_index_data.date);
         var $post_tags = $("<li class='post-tags'>").appendTo($item_value_list);
-        
-        $(post_index_data.tags).each
-        (
-				function()
-				{
-            	// Seems </a> must be added in IE
-            	$("<a class='post-tag-href'></a>").appendTo($post_tags).text(this+";").attr("href", "#@"+this);
-				}
-			);*/
-			var $post_list = $( "<li>" ).appendTo( $item_value_list );
-			$( "<a>" ).appendTo( $post_list ).text( post_index_data.title ).attr( "href", "#!" + post_index_data.path );
-			//$( "<p>" ).appendTo( $post_list ).text( post_index_data.date );
-		  /*$(post_index_data.tags).each
-        (
-				function()
-				{
-            	$( "<p>" ).appendTo( $post_list ).text("["+this+"] ");
-				}
-			);*/
+        $(post_index_data.tags).each(function(){
+            // Seems </a> must be added in IE
+            $("<a class='post-tag-href'></a>").appendTo($post_tags).text(this+";").attr("href", "#@"+this);
+        });
     },
     
     initTagPanel: function()
     {
-			$("#tag-panel-list").html("");
+        $("#tag-panel-list").html("");
         
-			blog.initPostTags();
+        blog.initPostTags();
         
-			$("<li class='tag-item'><a id='tag-all' class='tag-href' href='#!'>"+"全部/All"+"</a></li>").appendTo($("#tag-panel-list"));
+        $("<li class='tag-item'><a id='tag-all' class='tag-href' href='#!'>"+"全部/All"+"</a></li>").appendTo($("#tag-panel-list"));
 
-			$.each
-			(
-				blog.post_tags, function(key, value)
-				{
-					var $tag_item = $("<li class='tag-item'></li>").appendTo($("#tag-panel-list"));
-					// Seems </a> must be added in IE
-					var $tag_href = $("<a class='tag-href'></a>").appendTo($tag_item);
-					// TODO: Just try out, don't know why
-					$tag_href.text(key.toString());
+        $.each(blog.post_tags, function(key, value){
+            var $tag_item = $("<li class='tag-item'></li>").appendTo($("#tag-panel-list"));
+            // Seems </a> must be added in IE
+            var $tag_href = $("<a class='tag-href'></a>").appendTo($tag_item);
+            // TODO: Just try out, don't know why
+            $tag_href.text(key.toString());
             
-					$tag_href.click
-					(
-						function()
-						{
-							if($(this).hasClass("selected")){
-	                    location.hash = location.hash.replace("@"+$(this).text(), "");
-							}else{
-	                    location.hash += "@"+$(this).text();
-							}
-						}
-					);
-        		}
-			);
+            $tag_href.click(function(){
+                if($(this).hasClass("selected")){
+                    location.hash = location.hash.replace("@"+$(this).text(), "");
+                }else{
+                    location.hash += "@"+$(this).text();
+                }
+            });
+        });
     },
     
     updataTagPanel: function()
@@ -135,72 +100,52 @@ var blog =
             $("#tag-all").clone().appendTo($("#current-tag")).removeClass("selected");
         }
         
-        $(blog.filter_tags).each
-        (
-				function()
-				{
-	            var $tag_href = $("a.tag-href:contains("+this+")").addClass("selected");
-   	         $tag_href = $tag_href.clone().appendTo($("#current-tag")).removeClass("selected");
-
-      	      $tag_href.click
-      	      (
-      	      	function(e)
-      	      	{
-         	   		location.hash = location.hash.replace("@"+$(this).text(), "");
-                		e.stopPropagation();
-            		}
-            	);
-        		}
-		  );
+        $(blog.filter_tags).each(function(){
+            var $tag_href = $("a.tag-href:contains("+this+")").addClass("selected");
+            $tag_href = $tag_href.clone().appendTo($("#current-tag")).removeClass("selected");
+            $tag_href.click(function(e){
+                location.hash = location.hash.replace("@"+$(this).text(), "");
+                e.stopPropagation();
+            });
+        });
     },
     
     updateIndex: function() 
     {
         // clear index content
-        //$("#index-list").html("");
-        $( "#blogList" ).html( "" )
+        $("#index-list").html("");
         
-        $(blog.posts).each
-        (
-	        function()
-   	     {
-      	      if(!blog.filterPost(this.tags))
-         	   {
-            	    // should not be shown
-               	 // because tags not in filter tags
-               	 return;
-            	}
+        $(blog.posts).each(function(){
+            if(!blog.filterPost(this.tags)){
+                // should not be shown
+                // because tags not in filter tags
+                return;
+            }
             
-            	blog.updateIndexItem(this);
-			  }
-        );
+            blog.updateIndexItem(this);
+        });
         
-       // blog.updataTagPanel();
+        blog.updataTagPanel();
     },
     
     showIndex: function() 
     {
-        //$("#wrapper").hide();
-        //$("#index").show();
+        $("#wrapper").hide();
+        $("#index").show();
         console.log("blog.current_state: " + blog.current_state);
-        if(blog.current_state != "index")
-        {
-            if(typeof(DISQUS) != "undefined") 
-            {
-                DISQUS.reset
-                (
-                	{
+        if(blog.current_state != "index"){
+            if(typeof(DISQUS) != "undefined") {
+                DISQUS.reset({
                     reload : true,
-                    config : function() 
-                    {
+                    config : function() {
                         console.log("reload DISQUS: identifier: !");
                         
                         this.page.identifier = "!";
                         this.page.url = location.href;
                     }
-                	}
-                );
+                });
             }
+            
             blog.current_state = "index";
         }
         
@@ -209,10 +154,8 @@ var blog =
     
     findPostIndex: function() 
     {
-        for(i = 0; i < blog.posts.length; i++) 
-        {
-            if(blog.posts[i].path == blog.current_path) 
-            {
+        for(i = 0; i < blog.posts.length; i++) {
+            if(blog.posts[i].path == blog.current_path) {
                 blog.current_index = i;
                 break;
             }
@@ -238,34 +181,28 @@ var blog =
     
     showPost: function() 
     {
-        /*$("#index").hide();
-        $("#wrapper").show();*/
+        $("#index").hide();
+        $("#wrapper").show();
         
         blog.findPostIndex();
         blog.updateNavPanel();
         
-        if(blog.posts[blog.current_index])
-        {
+        if(blog.posts[blog.current_index]){
             document.title = blog.posts[blog.current_index].title;
         }
 
-       /* if(typeof(DISQUS) != "undefined") 
-        {
-            DISQUS.reset
-            (
-            	{
+        if(typeof(DISQUS) != "undefined") {
+            DISQUS.reset({
                 reload : true,
-                config : function() 
-                {
+                config : function() {
                     
                     console.log("reload DISQUS: identifier: !" + blog.current_path);
                     
                     this.page.identifier = "!" + blog.current_path;
                     this.page.url = location.href;
                 }
-            	}
-            );
-        }*/
+            });
+        }
         
         blog.current_state = "post";
     },
@@ -298,12 +235,8 @@ var blog =
         blog.showPost();
                
         // clear exist content
-        /*$("#post").addClass('background-transparent');
-        $("#post").html("");*/
-        $( "#main" ).html( "" );
-        $("<div class='post'>").appendTo( $("#main") );
-        //$("#post").addClass('background-transparent');
-        $(".post").html("");
+        $("#post").addClass('background-transparent');
+        $("#post").html("");
         
         $.ajax({
             url : "post/" + blog.current_path + ".md",
@@ -314,8 +247,7 @@ var blog =
     
     updateHref : function(aClass, path)
     {
-        if(path.length == 0) 
-        {
+        if(path.length == 0) {
             $("." + aClass).removeAttr("href");
         } else {
             $("." + aClass).attr("href", "#!" + path);
@@ -327,17 +259,13 @@ var blog =
     postLoaded : function(data) 
     {
         var post_content = blog.con.makeHtml(data);
-        /*$("#post").html(post_content);
-        $("#post").removeClass('background-transparent');*/
-        
-        $(".post").html(post_content);
-        //$("#post").removeClass('background-transparent');
+        $("#post").html(post_content);
+        $("#post").removeClass('background-transparent');
         
         $('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
     },
     
-    indexLoaded : function(data) 
-    {
+    indexLoaded : function(data) {
         blog.posts = data;
         
         if(blog.posts.length == 0) {
@@ -345,8 +273,8 @@ var blog =
             return;
         }
         
-        //blog.hideAll();
-        //blog.initTagPanel();
+        blog.hideAll();
+        blog.initTagPanel();
 
         blog.updateContent();
 
@@ -354,23 +282,19 @@ var blog =
         $(window).hashchange(function() {
             blog.updateContent();
         });
-        /*$("#tag-panel-list").hide(); 
+        $("#tag-panel-list").hide(); 
         $("#current-tag-list").click(function() {
            $("#tag-panel-list").slideToggle('fast'); 
            $("#extend-button").toggleClass("extend-up");
-        });*/
+        });
     }
 }
 
-$(document).ready
-(
-	function() 
-	{
+$(document).ready(function() {
     // load post index
     $.ajax({
         url : "post/index.json",
         dataType : 'json',
         success : blog.indexLoaded
     });  
-	}
-);
+});
