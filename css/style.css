@@ -1,6 +1,38 @@
+/* ----------------------------------- Typography ----------------------------------- */	
+
+/* Default links */
+a:link, a:visited {
+	text-decoration : underline;
+	color : #900b09;
+	background : transparent; 
+	}
+
+a:hover {
+	text-decoration : underline;
+	color: #ff0000;
+	background : transparent; 
+	}
+
+a:active {
+	text-decoration : underline;
+	color : #ff0000;
+	background : transparent;  
+	}
+
+h2, h3, h4, h5, h6	{
+	font-weight: bold;
+	margin:0;
+	padding:0;
+	}
+		
+p	{
+	margin: 12px 0 0 0;
+	line-height: 150%;
+	}		
+
+/* ----------------------------------- base ----------------------------------- */
 html 	{ 
 		min-width: 966px;
-		//background: #f9f9f9;
 		overflow:scroll;
 		overflow-x:hidden;
 		background-color:rgb(255, 255, 234);
@@ -12,114 +44,19 @@ body	{
 		padding: 0;
 		border: 0;
 		text-align: center;
-		font: 12px Verdana, Arial, Helvetica, sans-serif;
+		font-size:14px;
+		font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
 		}
-		
+						
 div#wrapper	{
 		margin: 0 auto;
 		padding: 0;
 		border: 0;
 		width: 966px;
 		text-align: left;
-		//background: transparent url(/i/site_wrapper.gif) top left repeat-y;
-		//background-color: white;
 		}
-		
-/*div#side	{
-		float: left;
-		margin: 0 0 0 6px;
-		padding: 0;
-		border: 0;
-		width: 150px;
-		background : transparent;
-		}*/
-		
-div#side	{
-	float: left;
-	width: 200px;
-	background-color:  #fff;
-   margin:  10px 10px 10px 10px;
-   padding:  5px 5px;
-   moz-border-radius:  5px;
-   webkit-moz-border-radius:  5px;
-   border-radius:  5px;
-   -webkit-box-shadow:  0px 1px 3px #A8ABAB;
-   -moz-box-shadow:  0px 1px 3px #A8ABAB;
-   box-shadow:  0px 1px 3px #A8ABAB;
-	}
 
-div#side img {
-	width: 200px;
-	height: auto;
-	margin: 0;
-	padding: 0;
-}
-
-html>body div#side {
-		margin-left: 12px;
-		}
-		
-div#main {
-		float: left;
-		margin: 0;
-		padding: 0;
-		border: 0;
-		//width: 637px;
-		width: 704px;
-		background: transparent;
-		}
-		
-/*div#footer	{
-		clear: both;
-		//margin: 0;
-		padding: 0;
-		//margin-left: 12px;
-		//width: 937px;
-		width: 966px;
-		height: 60px;
-		//background: #b6b6b6;
-		background: #0AA9FF;	
-		//border-top: 10px solid #fff;
-		//border-bottom: 10px solid #fff;
-		text-align: center;
-		}*/
-		
-div#footer	{
-		clear: both;
-		width: 966px;
-		height: 80px;
-		background: #0AA9FF;	
-		text-align: center;
-		
-		margin-top: 10px;
-		margin-bottom: 10px; 
-   	//padding:  5px 5px;
-   	moz-border-radius:  5px;
-   	webkit-moz-border-radius:  5px;
-   	border-radius:  5px;
-   	-webkit-box-shadow:  0px 1px 3px #A8ABAB;
-   	-moz-box-shadow:  0px 1px 3px #A8ABAB;
-   	box-shadow:  0px 1px 3px #A8ABAB;
-		}		
-
-div#footer p	{
-		margin: 2px 10px 0 10px;
-		font-size: 12px;
-		}		
-		
 /* ----------------------------------- header ----------------------------------- */
-/*div#header, div#header_index	{
-		//margin: 0 0 0 12px;
-		padding: 0;
-		border: 0;
-		//width: 937px;
-		width: 966px;
-		height: 90px;
-		//background: #b6b6b6;
-		//background: rgb(230, 235, 234);
-		background: #0AA9FF;	
-		}*/
-		
 div#header, div#header_index	{
 		padding: 0;
 		border: 0;
@@ -161,39 +98,25 @@ div#header h1 small{
     font-size: 12px;
     margin-left: 10px;
 }
-
+			
 /* ----------------------------------- navline ----------------------------------- */		
 div#navline	{
 		float: right;
 		height: 40px;
-		//width: 937px;
-		//margin: 0 0 0 12px;
 		padding: 0;
 		border: 0;
-		//background: #fff;
 		margin-top: 5px;
 		margin-right: 10px;
 		}	
 		
 div#navline ul#menu	{
 		height: 40px;
-		//width: 937px;
-		//background: transparent url(/i/site_bg.gif) top left no-repeat;
 		margin: 0;
 		padding: 0;
 		position: relative;
 		}
 		
-/*div#navline ul#menu li	{
-		margin-top: 6px;
-		padding-left: 20px;
-		padding-right: 20px;
-		list-style:none;
-		float: left;
-		}*/
-		
 div#navline ul#menu li	{
-		//margin-top: 6px;
 		margin: 6px;
 		padding-left: 10px;
 		padding-right: 10px;
@@ -211,28 +134,30 @@ div#navline ul#menu li	{
 		
 div#navline ul#menu a {
 	font-size: 20px;
-}		
-		
-
-/* Default links */
-a:link, a:visited {
-	text-decoration : underline;
-	color : #900b09;
-	background : transparent; 
+}	
+				
+/* ----------------------------------- side ----------------------------------- */					
+div#side	{
+	float: left;
+	width: 200px;
+	background-color:  #fff;
+   margin:  10px 10px 10px 10px;
+   padding:  5px 5px;
+   moz-border-radius:  5px;
+   webkit-moz-border-radius:  5px;
+   border-radius:  5px;
+   -webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   -moz-box-shadow:  0px 1px 3px #A8ABAB;
+   box-shadow:  0px 1px 3px #A8ABAB;
 	}
 
-a:hover {
-	text-decoration : underline;
-	color: #ff0000;
-	background : transparent; 
-	}
+div#side img {
+	width: 200px;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
 
-a:active {
-	text-decoration : underline;
-	color : #ff0000;
-	background : transparent;  
-	}
-	
 div#side a:link, div#side a:visited	{
 	text-decoration : none;
 	color:#000;
@@ -251,47 +176,6 @@ div#side a:active	{
 	background : transparent;
 	}
 	
-div#footer a:link, div#footer a:visited	{
-	text-decoration : none;
-	color:#000;
-	background : transparent;
-	} 
-
-div#footer a:hover	{
-	text-decoration : underline;
-	color : #000;
-	background : transparent;
-	}
-
-div#footer a:active	{
-	text-decoration : underline;
-	color : #000;
-	background : transparent;
-	}	
-
-/* ----------------------------------- Typography ----------------------------------- */
-
-h2, h3, h4, h5, h6	{
-	font-weight: bold;
-	margin:0;
-	padding:0;
-	}
-
-div#main h1	{
-	margin:15px 0 0 15px;
-	font-size: 20px;
-	font-family: 'Î¢ÈíÑÅºÚ';
-	}
-
-div#main h2	{
-	font-size: 14px;
-	}
-
-div#main h3,  div#main h4{
-	margin:20px 0 0 0;
-	font-size:12px;
-	}
-
 div#side h2	{
 	font-size: 16px;
 	margin:10px 0 0 12px;
@@ -301,22 +185,8 @@ div#side li {
 	margin:5px 0 0 0;
 	font-weight:bold;
 	font-size:12px;
-	}
-		
-p	{
-	margin: 12px 0 0 0;
-	line-height: 150%;
-	}		
+	}	
 	
-div#main ul {
-	margin-top:10px;
-	margin-bottom:0;
-	}
-
-div#main li {
-	margin-top:3px;
-	}
-
 div#side ul, div#side li {
 	margin: 0;
 	padding: 0;
@@ -331,21 +201,186 @@ div#side li {
 	white-space:nowrap;
    text-overflow:ellipsis;
    overflow: hidden; 
-	}
-
-div#navsecond li.list_apart {
-	margin-top:10px;
+   margin: 0;
+   margin-top: 4px;
+   margin-bottom: 4px;
 	}	
 	
-.post {
+div#side li a {
+	float: left;
+	list-style: none;
+	white-space:nowrap;
+   text-overflow:ellipsis;
+   overflow: hidden;
+   width: 120px;
+   margin: 0;
+	padding: 0;
+	}
+		
+div#side li small {
+	float: right;
+	color: gray;
+	margin: 0;
+	margin-top: 2px;
+	padding: 0;
+	font-size: 10px;
+}		
+	
+	
+/* ----------------------------------- main ----------------------------------- */		
+		
+div#main {
+		float: left;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		width: 730px;
+		background: transparent;
+		}
+		
+div#main h2	{
+	font-size: 14px;
+	}
+
+div#main h3,  div#main h4{
+	margin:20px 0 0 0;
+	font-size:12px;
+	}		
+	
+div#main ul {
+	margin-top:10px;
+	margin-bottom:0;
+	}
+
+div#main li {
+	margin-top:3px;
+	}	
+			
+/* ----------------------------------- footer ----------------------------------- */					
+div#footer	{
+		clear: both;
+		width: 966px;
+		height: 80px;
+		background: #0AA9FF;	
+		text-align: center;
+		
+		margin-top: 10px;
+		margin-bottom: 10px; 
+   	moz-border-radius:  5px;
+   	webkit-moz-border-radius:  5px;
+   	border-radius:  5px;
+   	-webkit-box-shadow:  0px 1px 3px #A8ABAB;
+   	-moz-box-shadow:  0px 1px 3px #A8ABAB;
+   	box-shadow:  0px 1px 3px #A8ABAB;
+		}		
+
+div#footer p	{
+		margin: 2px 10px 0 10px;
+		font-size: 12px;
+		}			
+
+div#footer a:link, div#footer a:visited	{
+	text-decoration : none;
+	color:#000;
+	background : transparent;
+	} 
+	
+div#footer a:hover	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}
+
+div#footer a:active	{
+	text-decoration : underline;
+	color : #000;
+	background : transparent;
+	}		
+
+/* ----------------------------------- post ----------------------------------- */
+	
+div.post {
 	background-color: #FFF;
-	margin:  10px 10px 10px 10px;
-   padding:  20px 20px;
+	margin:  10px 10px 30px 10px;
+   padding:  5px 20px 20px 20px;
    moz-border-radius:  5px;
    webkit-moz-border-radius:  5px;
    border-radius:  5px;
    -webkit-box-shadow:  0px 1px 3px #A8ABAB;
    -moz-box-shadow:  0px 1px 3px #A8ABAB;
    box-shadow:  0px 1px 3px #A8ABAB;
+   width: 670px;
+}
+
+div.post hr {
+	float: left;
+	width: 668px;
+}
+
+/* ----------------------------------- post_title ----------------------------------- */
+
+div.post_title {	
+	margin: 0;
+	padding: 0;
+	width: 670px;
+}	
+
+div.post_title h1 {
+	float: left;
+	margin:15px 0 0 0;
+	padding: 0px;
+	width: 670px;
 }	
 	
+div.post_title a {
+	float: left;
+	list-style: none;
+	white-space:nowrap;
+   text-overflow:ellipsis;
+   overflow: hidden;
+	margin: 0;
+	padding: 0;
+	font-size: 30px;
+	width: 520px;
+}	
+
+div.post_title small {
+	float: right;
+	font-size: 14px;
+	margin: 0;
+	margin-top: 18px;
+	padding: 0;
+	color: gray;
+}
+	
+/* ----------------------------------- post_content ----------------------------------- */	
+	
+div.post_content {
+	list-style: none;
+   text-overflow:ellipsis;
+   overflow: hidden;
+   max-height: 800px;
+   margin: 0;
+	padding: 0;
+	width: 670px;
+}
+
+/* ----------------------------------- post_bottom ----------------------------------- */	
+
+div.post_bottom {
+	margin: 0;
+	padding: 0;
+	width: 670px;
+}
+
+div.post_bottom p {
+	//float: right;
+	text-align: right;
+}
+
+
+
+
+
+
+

@@ -4,5 +4,11 @@
         "path": "2012-03-30-let_me_try",
         "tags": ["test"],
         "date": "2012-03-30"
+    },
+    {
+        "title": "在Github上写博客",
+        "path": "2012-01-29-write-blog-on-github",
+        "tags": ["github", "blog", "markdown"],
+        "date": "2012-01-29"
     }
 ]
