@@ -21,39 +21,16 @@
 	</head>
 	<body class="html">	
 		<div id="wrapper">
-			<div id="header">
-			<h1>
-			<a href="" >Zero's Blog</a>
-			<small>—— This is 副标题,可以写很长很长很长很长很长很长很长很长很长很长很长很长</small>
-			</h1>
-			<div id="navline">
-				<ul id="menu">
-					<li><a href="" >BLOG</a></li>
-					<li><a href="" >PHOTO</a></li>
-					<li><a href="" >ABOUT</a></li>
-					<li><a href="" >GITHUB</a></li>
-					<li><a href="" >WEIBO</a></li>
-				</ul>
-			</div>
-			</div>
-			
-			<div id="side">
-				<div>
-					<h1>Zero</h1>				
-					<!-- <img src="http://res1.pic.766.com/img1/824/46/5/31272614626350.jpg"/> -->
-					<img src="./icons/handle.jpg"/>
-					<h2>This is side</h2>
-				</div>
-				<hr />
-				<div id="blogList">
-				</div>
-			</div>
-			<div id="main">
-			</div>		
-			<div id="footer">
-			<h1>This is footer</h1>
-			</div>
+			<div id="header"></div>
+			<div id="side"></div>
+			<div id="main"></div>		
+			<div id="footer"></div>
 		</div>
+		<script type="text/javascript">
+			    $( "#header" ).load( "template/head.html" );
+			    $( "#footer" ).load( "template/footer.html" );
+			    $( "#side" ).load( "template/side.html" );
+		</script>
 		<script type="text/javascript" src="js/staticblog.js"></script>
 	</body>
 </html>
