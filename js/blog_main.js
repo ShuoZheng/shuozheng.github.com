@@ -51,11 +51,12 @@ var blog =
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
-		$( "<a>" ).appendTo( $t_title ).text( data.title ).attr( "href", "#!" + data.path );
+		$( "<a>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
 		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
 			
 		//bottom
-		$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】【返回顶部】" );
+		//$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】【返回顶部】" );
+		$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" ) ).text( "【返回顶部】" ).attr( "href", "#top" ); 
 		
 		//content
 		$.ajax

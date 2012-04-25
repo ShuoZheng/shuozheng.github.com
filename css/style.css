@@ -353,18 +353,6 @@ div.post_title small {
 	color: gray;
 }
 	
-/* ----------------------------------- post_content ----------------------------------- */	
-	
-div.post_content {
-	list-style: none;
-   text-overflow:ellipsis;
-   overflow: hidden;
-   max-height: 800px;
-   margin: 0;
-	padding: 0;
-	width: 670px;
-}
-
 /* ----------------------------------- post_bottom ----------------------------------- */	
 
 div.post_bottom {
@@ -378,6 +366,10 @@ div.post_bottom p {
 	text-align: right;
 }
 
+div.post_bottom a {
+	float: right;
+	text-align: right;
+}
 
 
 

@@ -1,0 +1,73 @@
+/* ----------------------------------- side bar post index ----------------------------------- */
+li#postIndex_selecter a#postIndex_All, li#postIndex_selecter a#postIndex_And, li#postIndex_selecter a#postIndex_Or {
+	width: 50px;
+}
+
+a.selected {
+	color: red;
+}
+
+div#side a.selected:hover {
+	color: red;
+}
+
+/* ----------------------------------- main post list ----------------------------------- */
+
+ul.postList_item {
+	margin: 0;
+	padding: 0;
+	border-bottom: 3px double rgb(238, 238, 238);
+	width: 670px;
+	height: 22px;
+	text-align: left;
+}
+
+ul.postList_item li {
+	margin: 0;
+	margin-bottom: 3px;
+	padding: 0;
+	list-style: none outside none;
+}
+
+li.postList_title {
+	float: left;
+	width: 300px;
+	white-space:nowrap;
+   text-overflow:ellipsis;
+   overflow: hidden;
+}
+
+li.postList_title a {
+	font-size: 16px;
+}
+
+li.postList_date {
+	float: left;
+	color: gray;
+}
+
+li.postList_tags {
+	float: right;
+	text-align: right;
+	color: gray;
+	width: 260px;
+	white-space:nowrap;
+   text-overflow:ellipsis;
+   overflow: hidden;
+	font-size: 12px;
+}
+
+/* ----------------------------------- post_content ----------------------------------- */	
+div.post_content {
+	list-style: none;
+   text-overflow:ellipsis;
+   overflow: hidden;
+   margin: 0;
+	padding: 0;
+	width: 670px;
+}
+
+
+
+
+
