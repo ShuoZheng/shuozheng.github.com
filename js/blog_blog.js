@@ -22,6 +22,37 @@ var blog =
 		}
 		return false;
 	},
+
+	isNeedShow : function( tags, mode )
+	{
+		var should_show = false;
+		if( blog.filter_tags.length > 0 || mode > 0 )
+		{
+			for( var i in blog.filter_tags )
+			{
+				should_show = false;
+				for( var j in tags )
+				{
+					if( blog.filter_tags[ i ] == tags[ j ] )
+					{
+						should_show = true;
+						break;
+					}
+				}		
+				if( ( !should_show && mode == 2 )
+					|| ( should_show == true && mode == 1 )
+				 )
+				{
+					return should_show;
+				}
+			}
+		}
+		else
+		{
+			should_show = true;
+		}
+		return should_show;
+	},
 	
 	initPostTags : function( )
 	{
@@ -60,7 +91,7 @@ var blog =
 		
 		var $post_list = $( "<li>" ).appendTo( $item_value_list );
 		$( "<a>" ).appendTo( $post_list ).text( "Tags" ).attr( "href", "" );
-		$("<small id='postIndex_Num'>").appendTo( $post_list ).text( "[" + blog.tags_num + "]" );
+		$("<small>").appendTo( $post_list ).text( "[" + blog.tags_num + "]" );
 		$post_list = $( "<li>" ).appendTo( $item_value_list );
 		//$( "<hr />" ).appendTo( $post_list )
 		
@@ -83,6 +114,7 @@ var blog =
 					$( ".selected" ).removeClass( "selected" );
 					$( this ).addClass( "selected" );
 				}
+				blog. updatePostList( );
 			}
 		);		
 		
@@ -105,11 +137,12 @@ var blog =
 		(
 			function( e )
 			{
+				var isSelected = blog.isHashClass( this, "selected" );
 				if( $( "#postIndex_And.selected" ).length == 0 && $( "#postIndex_Or.selected" ).length == 0 )
 				{
 					$( "a.tag_item" ).removeClass( "selected" )
 				}
-				if( blog.isHashClass( this, "selected" ) )
+				if( isSelected )
 				{
 					$(this).removeClass( "selected" );
 				}
@@ -130,15 +163,20 @@ var blog =
 		(
 			$( "a.tag_item" ), function( )
 			{
-				if( blog.isHashClass( "selected" ) )
+				if( blog.isHashClass( this, "selected" ) )
 				{
 					blog.filter_tags = blog.filter_tags.concat( this.text );
 				}
 			}
 		);
-		if(blog.current_path.length != 0 ) 
+		/*if(blog.current_path.length != 0 ) 
 		{
 			return;
+		}*/
+		if(blog.current_path.length != 0 )
+		{
+			location.hash = "";
+			blog.current_path = "";
 		}
 		blog.initPostList( );
 	},
@@ -157,12 +195,41 @@ var blog =
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
 		$( "<a>" ).appendTo( $t_title ).text( "Blog List" );
-		$("<small>").appendTo( $t_title ).text( "[All]" );				
+		$("<small id='filter'>").appendTo( $t_title ).text( "[All]" );				
+		
+		var mode = 0;
+		if( blog.filter_tags.length != 0 )
+		{
+			if( $( "#postIndex_Or.selected" ).length > 0 )
+			{
+				mode = 1;
+			}
+			else if( $( "#postIndex_And.selected" ).length > 0 )
+			{
+				mode = 2;
+			}
+			var t_tags = ""
+			$( blog.filter_tags ).each
+        		(
+        			function()
+        			{
+					t_tags = t_tags + "[" + this + "]";
+				}
+			);
+			$( "#filter" ).text( t_tags );
+		}
+
+		var postNum = 0;
 		
 		$( blog.posts ).each
 		(
 			function()
 			{
+				if( !blog.isNeedShow( this.tags, mode ) )
+				{
+					return;
+				}
+				postNum += 1;
 				var $post_list = $( "<ul class='postList_item'>" ).appendTo( $post_content );
 				var $postList_title = $( "<li class='postList_title'>" ).appendTo( $post_list );
 				$( "<a>" ).appendTo( $postList_title ).text( this.title ).attr( "href", "#!" + this.path );
@@ -171,15 +238,46 @@ var blog =
 				
 				var $post_tags = $("<li class='postList_tags'>").appendTo( $post_list );
 				
-        		$( this.tags ).each
-        		(
-        			function()
-        			{
-            		$("<a class='tag_item'></a>").appendTo($post_tags).text( "[" + this + "]");
+        			$( this.tags ).each
+				(
+					function( )
+					{
+						$("<a class='postList_tagsItem'>").appendTo( $post_tags ).text( "[" + this + "]" );
 					}
 				);
 			}
 		);
+		
+		$( "a.postList_tagsItem" ).click
+		(
+			function( e )
+			{
+				var item = this;
+				
+				$( "#postIndex_selecter a" ).removeClass( "selected" );
+				$( "#postIndex_All" ).addClass( "selected" );
+				$( "a.tag_item" ).removeClass( "selected" )
+
+				$( "a.tag_item" ).each
+				(
+					function( )
+					{
+						if( this.text == item.text.replace( "[", "" ).replace( "]", "" ) )
+						{
+							$(this).addClass( "selected" );
+						}
+					}
+				);
+				blog.updatePostList( );
+			}
+		);
+
+		
+		if( postNum <= 0 )
+		{
+			$( "<H1>" ).appendTo( $post_content ).text( "no post" );
+		}
+		$( "#postIndex_Num" ).text( "[" + postNum + "]" );
 	},
 	
 	loadPost : function( post, data )
