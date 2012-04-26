@@ -10,6 +10,19 @@ var blog =
 	con: new Showdown.converter(),
 	tags_num: 0,
 	
+	isHashClass : function( data, name )
+	{
+		var classes = data.className.split( " " );
+		for( i in classes )
+		{
+			if( classes[ i ] == name )
+			{
+				return true;
+			}
+		}
+		return false;
+	},
+	
 	initPostTags : function( )
 	{
 		var all_tags = [];
@@ -85,21 +98,6 @@ var blog =
 				$post_list = $( "<li>" ).appendTo( $item_value_list );
 				var $ta = $( "<a class='tag_item'>" ).appendTo( $post_list ).text( key.toString() );
 				$("<small>").appendTo( $post_list ).text( "[" + value + "]" );
-				/*$ta.click
-				(
-					function( e )
-					{
-						if( $( "#postIndex_And.selected" ).length == 0 && $( "#postIndex_Or.selected" ).length == 0 )
-						{
-							$( ".tag_item" ).removeClass( "selected" )
-						}
-						
-						if( this.classList.length > 1 )
-							$(this).removeClass( "selected" );
-						else
-							$(this).addClass( "selected" );
-					}
-				);*/
 			}
 		);
 		
@@ -111,14 +109,38 @@ var blog =
 				{
 					$( "a.tag_item" ).removeClass( "selected" )
 				}
-				
-				if( this.classList.length > 1 )
+				if( blog.isHashClass( this, "selected" ) )
+				{
 					$(this).removeClass( "selected" );
+				}
 				else
+				{
 					$(this).addClass( "selected" );
+				}
+				blog.updatePostList( );
 			}
 		);
 
+	},
+	
+	updatePostList : function( )
+	{
+		blog.filter_tags = [];
+		$.each
+		(
+			$( "a.tag_item" ), function( )
+			{
+				if( blog.isHashClass( "selected" ) )
+				{
+					blog.filter_tags = blog.filter_tags.concat( this.text );
+				}
+			}
+		);
+		if(blog.current_path.length != 0 ) 
+		{
+			return;
+		}
+		blog.initPostList( );
 	},
 	
 	initPostList : function( )
