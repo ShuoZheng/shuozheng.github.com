@@ -97,9 +97,9 @@ var blog =
 		
 		$post_list = $( "<li id='postIndex_selecter'>" ).appendTo( $item_value_list );
 		
-		$( "<a id='postIndex_All' class='selected'>" ).appendTo( $post_list ).text( "[ALL]" );		
-		$( "<a id='postIndex_And'>" ).appendTo( $post_list ).text( "[AND]" );						
-		$( "<a id='postIndex_Or'>" ).appendTo( $post_list ).text( "[OR]" );
+		$( "<a id='postIndex_All' class='selected' title='单选模式/全部文章'>" ).appendTo( $post_list ).text( "[ALL]" );		
+		$( "<a id='postIndex_And' title='副选模式：( [A] && [B] && ... )'>" ).appendTo( $post_list ).text( "[AND]" );						
+		$( "<a id='postIndex_Or' title='副选模式：( [A] || [B] || ... )'>" ).appendTo( $post_list ).text( "[OR]" );
 
 		
 		$( "#postIndex_selecter a" ).click
@@ -232,7 +232,7 @@ var blog =
 				postNum += 1;
 				var $post_list = $( "<ul class='postList_item'>" ).appendTo( $post_content );
 				var $postList_title = $( "<li class='postList_title'>" ).appendTo( $post_list );
-				$( "<a>" ).appendTo( $postList_title ).text( this.title ).attr( "href", "#!" + this.path );
+				$( "<a title='" + this.title + "'>" ).appendTo( $postList_title ).text( this.title ).attr( "href", "#!" + this.path );
 
 				$( "<li class='postList_date'>" ).appendTo( $post_list ).text( this.date );
 				
@@ -291,12 +291,12 @@ var blog =
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
-		$( "<a>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
+		$( "<a title='" + data.title + "'>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
 		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
 			
 		//bottom
-		//$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】【返回顶部】" );
-		$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" ) ).text( "【返回顶部】" ).attr( "href", "#top" );
+		$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" );
+		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" ) ).text( "【返回顶部】" ).attr( "href", "#top" );
 		
 		//content
 		$.ajax

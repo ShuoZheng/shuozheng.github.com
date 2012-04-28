@@ -1,6 +1,7 @@
 /* ----------------------------------- side bar post index ----------------------------------- */
 li#postIndex_selecter a#postIndex_All, li#postIndex_selecter a#postIndex_And, li#postIndex_selecter a#postIndex_Or {
 	width: 50px;
+	cursor: pointer;
 }
 
 a.selected {
@@ -9,6 +10,10 @@ a.selected {
 
 div#side a.selected:hover {
 	color: red;
+}
+
+a.tag_item, a.postList_tagsItem {
+	cursor: pointer;
 }
 
 /* ----------------------------------- main post list ----------------------------------- */

@@ -10,5 +10,11 @@
         "path": "2012-01-29-write-blog-on-github",
         "tags": ["Github", "Blog", "Markdown"],
         "date": "2012-01-29"
+    },
+    {
+        "title": "关于",
+        "path": "about",
+        "tags": ["About"],
+        "date": "2012-01-28"
     }
 ]
