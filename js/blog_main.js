@@ -18,9 +18,12 @@ var blog =
 		(
 			function()
 			{
-				var $post_list = $( "<li>" ).appendTo( $item_value_list );
-				$( "<a title='" + this.title + "'>" ).appendTo( $post_list ).text( this.title ).attr( "href", "blog.html#!" + this.path );
-				$("<small>").appendTo( $post_list ).text( this.date );
+				if( this.tags[ 0 ] != "hide" )
+				{
+					var $post_list = $( "<li>" ).appendTo( $item_value_list );
+					$( "<a title='" + this.title + "'>" ).appendTo( $post_list ).text( this.title ).attr( "href", "blog.html#!" + this.path );
+					$("<small>").appendTo( $post_list ).text( this.date );
+				}			
 			}
 		);
 
@@ -34,8 +37,11 @@ var blog =
 		(
 			function()
 			{
-				var $post = $("<div class='post'>").appendTo( $("#main") );
-				blog.loadPost( $post, this );
+				if( this.tags[ 0 ] != "hide" )
+				{
+					var $post = $("<div class='post'>").appendTo( $("#main") );
+					blog.loadPost( $post, this );
+				}
 			}
 		);
 	},
@@ -45,6 +51,18 @@ var blog =
 		post.html( "" );
 		var $post_title = $( "<div class='post_title'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
+		
+		//tags		
+		var str_tag = "标签："	
+		$( data.tags ).each
+		(
+			function( )
+			{
+				str_tag += '[' + this + ']';
+			}
+		);
+		$("<small>").appendTo( post ).text( str_tag ).css( { color : 'gray', float: 'right' } );
+		
 		var $post_content = $( "<div class='post_content'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( post );
@@ -53,12 +71,11 @@ var blog =
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
 		$( "<a title='" + data.title + "'>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
 		
-		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
+		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );			
 			
 		//bottom
-		$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" );
-		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" ) ).text( "【返回顶部】" ).attr( "href", "#top" ); 
-		
+		str_tag += "  |  日期：" + "[" + data.date + "]  |  ";
+		$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } ) ).text( "【全文阅读】" ).attr( "href", "blog.html#!" + data.path );
 		//content
 		$.ajax
 		(

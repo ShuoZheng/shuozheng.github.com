@@ -26,6 +26,9 @@ var blog =
 	isNeedShow : function( tags, mode )
 	{
 		var should_show = false;
+		if( tags[ 0 ] == "hide" )
+			return false;		
+		
 		if( blog.filter_tags.length > 0 || mode > 0 )
 		{
 			for( var i in blog.filter_tags )
@@ -72,13 +75,16 @@ var blog =
 		(
 			function( )
 			{
-				if( blog.post_tags[ this ] == undefined )
+				if( this != "hide" )
 				{
-					blog.post_tags[ this ] = 1;
-					blog.tags_num += 1;
-				}
-				else
-					blog.post_tags[ this ] += 1;
+					if( blog.post_tags[ this ] == undefined )
+					{
+						blog.post_tags[ this ] = 1;
+						blog.tags_num += 1;
+					}
+					else
+						blog.post_tags[ this ] += 1;
+					}
 			}
 		);				
 		
@@ -194,7 +200,7 @@ var blog =
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
-		$( "<a>" ).appendTo( $t_title ).text( "Blog List" );
+		$( "<a>" ).appendTo( $t_title ).text( "文章列表" );
 		$("<small id='filter'>").appendTo( $t_title ).text( "[All]" );				
 		
 		var mode = 0;
@@ -238,7 +244,7 @@ var blog =
 				
 				var $post_tags = $("<li class='postList_tags'>").appendTo( $post_list );
 				
-        			$( this.tags ).each
+        		$( this.tags ).each
 				(
 					function( )
 					{
@@ -275,7 +281,7 @@ var blog =
 		
 		if( postNum <= 0 )
 		{
-			$( "<H1>" ).appendTo( $post_content ).text( "no post" );
+			$( "<H1>" ).appendTo( $post_content ).text( "没有文章" );
 		}
 		$( "#postIndex_Num" ).text( "[" + postNum + "]" );
 	},
@@ -285,6 +291,18 @@ var blog =
 		post.html( "" );
 		var $post_title = $( "<div class='post_title'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
+		//tags		
+		var str_tag = "标签："	
+		$( data.tags ).each
+		(
+			function( )
+			{
+				str_tag += '[' + this + ']';
+			}
+		);		
+		$("<small>").appendTo( post ).text( str_tag ).css( { color : 'gray', float: 'right' } );
+			
+		
 		var $post_content = $( "<div class='post_content'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( post );
@@ -295,8 +313,10 @@ var blog =
 		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
 			
 		//bottom
-		$( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" );
-		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( "底栏，随便放点什么。比如【阅读】【评论】【日期】" ) ).text( "【返回顶部】" ).attr( "href", "#top" );
+		str_tag += "  |  日期：" + "[" + data.date + "]  |  ";
+		//$( "<p>" ).appendTo( $post_bottom ).text( "【阅读】【评论】【日期】" );
+		$( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } );
+		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } ) ).text( "【全文阅读】" ).attr( "href", "blog.html#!" + data.path );
 		
 		//content
 		$.ajax
