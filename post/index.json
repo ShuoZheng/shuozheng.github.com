@@ -1,11 +1,5 @@
 [
     {
-        "title": "好吧！ 让我来试试标题要够长长长长长长长长长长长长长长长长长长长长",
-        "path": "2012-03-30-let_me_try",
-        "tags": ["Test", "Blog"],
-        "date": "2012-03-30"
-    },
-    {
         "title": "在Github上写博客",
         "path": "2012-01-29-write-blog-on-github",
         "tags": ["Github", "Blog", "Markdown"],

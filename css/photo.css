@@ -19,24 +19,20 @@ a.tag_item, a.postList_tagsItem {
 /* ----------------------------------- main post list ----------------------------------- */
 
 ul.postList_item {
-	margin: 0;
-	padding: 0;
-	border-bottom: 3px double rgb(238, 238, 238);
-	width: 670px;
-	height: 22px;
+	float: left;
+	margin: 6px 6px 6px 6px;
+	padding: 2px 2px 2px 2px;
 	text-align: left;
+	border: 3px double rgb(238, 238, 238);
 }
 
 ul.postList_item li {
 	margin: 0;
-	margin-bottom: 3px;
 	padding: 0;
 	list-style: none outside none;
 }
 
 li.postList_title {
-	float: left;
-	width: 300px;
 	white-space:nowrap;
    text-overflow:ellipsis;
    overflow: hidden;
@@ -44,18 +40,30 @@ li.postList_title {
 
 li.postList_title a {
 	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+li.postList_title a img {
+	max-height: 120px;
+	width: auto;
+	margin: 0pt;
+	padding: 0pt;
+}
+
+li.postList_title a p {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
 
 li.postList_date {
-	float: left;
 	color: gray;
 }
 
 li.postList_tags {
-	float: right;
-	text-align: right;
+	text-align: left;
 	color: gray;
-	width: 260px;
 	white-space:nowrap;
    text-overflow:ellipsis;
    overflow: hidden;
@@ -98,9 +106,6 @@ div.post_nav a.postNav_back {
 div.post_nav a.postNav_next {
 	float: right;
 }
-
-
-
 
 
 

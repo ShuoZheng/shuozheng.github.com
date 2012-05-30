@@ -103,7 +103,7 @@ var blog =
 		
 		$post_list = $( "<li id='postIndex_selecter'>" ).appendTo( $item_value_list );
 		
-		$( "<a id='postIndex_All' class='selected' title='单选模式/全部文章'>" ).appendTo( $post_list ).text( "[ALL]" );		
+		$( "<a id='postIndex_All' class='selected' title='单选模式/全部图片'>" ).appendTo( $post_list ).text( "[ALL]" );		
 		$( "<a id='postIndex_And' title='副选模式：( [A] && [B] && ... )'>" ).appendTo( $post_list ).text( "[AND]" );						
 		$( "<a id='postIndex_Or' title='副选模式：( [A] || [B] || ... )'>" ).appendTo( $post_list ).text( "[OR]" );
 
@@ -200,7 +200,7 @@ var blog =
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
-		$( "<a>" ).appendTo( $t_title ).text( "文章列表" );
+		$( "<a>" ).appendTo( $t_title ).text( "图片列表" );
 		$("<small id='filter'>").appendTo( $t_title ).text( "[All]" );				
 		
 		var mode = 0;
@@ -216,11 +216,11 @@ var blog =
 			}
 			var t_tags = ""
 			$( blog.filter_tags ).each
-        		(
+        	(
         			function()
         			{
-					t_tags = t_tags + "[" + this + "]";
-				}
+						t_tags = t_tags + "[" + this + "]";
+					}
 			);
 			$( "#filter" ).text( t_tags );
 		}
@@ -238,7 +238,12 @@ var blog =
 				postNum += 1;
 				var $post_list = $( "<ul class='postList_item'>" ).appendTo( $post_content );
 				var $postList_title = $( "<li class='postList_title'>" ).appendTo( $post_list );
-				$( "<a title='" + this.title + "'>" ).appendTo( $postList_title ).text( this.title ).attr( "href", "#!" + this.path );
+				
+				var $postImage = $( "<a title='" + this.title + "'>" ).attr( "href", "#!" + this.path ); 
+				//$( "<a title='" + this.title + "'>" ).appendTo( $postList_title ).text( this.title ).attr( "href", "#!" + this.path );
+				$postImage.appendTo( $postList_title );//.text( this.title );
+				$( "<img src=" +"image/" + this.path + ">" ).appendTo( $postImage );
+				$( "<p>" ).appendTo( $postImage ).text( this.title );
 
 				$( "<li class='postList_date'>" ).appendTo( $post_list ).text( this.date );
 				
@@ -281,7 +286,7 @@ var blog =
 		
 		if( postNum <= 0 )
 		{
-			$( "<H1>" ).appendTo( $post_content ).text( "没有文章" );
+			$( "<H1>" ).appendTo( $post_content ).text( "没有图片" );
 		}
 		$( "#postIndex_Num" ).text( "[" + postNum + "]" );
 	},
@@ -302,6 +307,7 @@ var blog =
 		);		
 		$("<small>").appendTo( post ).text( str_tag ).css( { color : 'gray', float: 'right' } );
 			
+		
 		$( "<hr />" ).appendTo( post );
 		$( "<div class='post_nav'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
@@ -313,7 +319,8 @@ var blog =
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
-		$( "<a title='" + data.title + "'>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
+		//$( "<a title='" + data.title + "'>" ).appendTo( $t_title ).text( data.title ).attr( "href", "blog.html#!" + data.path );
+		$( "<a target='_blank' title='" + data.title + "'>" ).appendTo( $t_title ).text( data.title ).attr( "href", "image/" + data.path );
 		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
 			
 		//bottom
@@ -322,19 +329,22 @@ var blog =
 		$( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } );
 		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } ) ).text( "【全文阅读】" ).attr( "href", "blog.html#!" + data.path );
 		
+		$( "<center><a target='_blank' href=image/" + data.path + "><img src=" + "image/" + data.path + "></a></center>" ).appendTo( $post_content );
+		$( "<p>" ).appendTo( $post_content ).text( data.info );
+		
 		blog.updatePostNav( $( "div.post_nav" ), data );
 		
-		//content
-		$.ajax
+		//content	
+		/*$.ajax
 		(
 			{
 				url : "post/" + data.path + ".md",
 				dataType : 'text',
 				success : function(t){ blog.loadPostContent( t, $post_content ); }
 			}
-		);
+		);*/
 
-	},
+	},	
 	
 	updatePostNav : function( nav, data )
 	{
@@ -415,13 +425,6 @@ var blog =
 			blog.updatePostContent( );
 	},
 	
-	loadPostContent : function( data, content )
-	{
-		var post_content = blog.con.makeHtml(data);
-		$(content).html(post_content);
-		$('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
-	},
-	
 	updatePostContent : function( )
 	{
 		var hash = location.hash;
@@ -478,7 +481,7 @@ $(document).ready
 	{
     // load post index
     $.ajax({
-        url : "post/index.json",
+        url : "image/index.json",
         dataType : 'json',
         success : blog.indexLoaded
     });  

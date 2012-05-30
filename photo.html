@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Zero's Blog</title>
+		<meta name="description" content="blog" />
+		<meta name="author" content="Zero" />
+		<link href="icons/favicon.ico" rel="shortcut icon"/ >		 
+		
+		<!-- Include javascript files -->
+  		<script type="text/javascript" src="js/jquery.min.js"></script>
+  		<script type="text/javascript" src="js/jquery.ba-hashchange.min.js"></script>
+  		<script type="text/javascript" src="js/showdown.js"></script>
+  		<script type="text/javascript" src="js/highlight.pack.js"></script>
+  		<script type="text/javascript" src="js/scrolltotop.js"></script>
+  		
+		<!-- Include stylesheet files -->
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<!-- Highlight js stylesheet file -->
+		<link rel="stylesheet" type="text/css" href="css/default.css"/>
+		<!-- photo css -->
+		<link rel="stylesheet" type="text/css" href="css/photo.css"/>
+		
+	</head>
+	<body class="html">	
+		<div id="wrapper">
+			<div id="header"></div>
+			<div id="side"></div>
+			<div id="main"></div>		
+			<div id="footer"></div>
+		</div>
+		<script type="text/javascript">
+			    $( "#header" ).load( "template/head.html" );
+			    $( "#footer" ).load( "template/footer.html" );
+			    $( "#side" ).load( "template/side.html" );
+		</script>
+		<script type="text/javascript" src="js/blog_photo.js"></script>
+	</body>
+</html>
