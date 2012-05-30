@@ -377,52 +377,54 @@ var blog =
 	
 	CheckPostNav : function( isNext )
 	{
-			var mode = 0;
-			if( blog.filter_tags.length != 0 )
+		if( blog.posts[ blog.current_index ].tags[ 0 ] == "hide" )
+			return false;
+		var mode = 0;
+		if( blog.filter_tags.length != 0 )
+		{
+			if( $( "#postIndex_Or.selected" ).length > 0 )
 			{
-				if( $( "#postIndex_Or.selected" ).length > 0 )
+				mode = 1;
+			}
+			else if( $( "#postIndex_And.selected" ).length > 0 )
+			{
+				mode = 2;
+			}
+		}
+		var hasPost = false;
+		var tid = blog.current_index;
+		while( true )
+		{
+			if( isNext == true )
+			{
+				tid = tid + 1;
+				if( tid > blog.posts.length - 1 )
 				{
-					mode = 1;
-				}
-				else if( $( "#postIndex_And.selected" ).length > 0 )
-				{
-					mode = 2;
+					return;
 				}
 			}
-			var hasPost = false;
-			var tid = blog.current_index;
-			while( true )
+			else
 			{
-				if( isNext == true )
+				tid = tid - 1;
+				if( tid < 0 )
 				{
-					tid = tid + 1;
-					if( tid > blog.posts.length - 1 )
-					{
-						return;
-					}
+					return;
 				}
-				else
-				{
-					tid = tid - 1;
-					if( tid < 0 )
-					{
-						return;
-					}
-				}
-				if( blog.isNeedShow( blog.posts[ tid ].tags, mode ) )
-				{
-					hasPost = true;
-					break;
-				}
-			}				
-			
-			if( hasPost == false )
+			}
+			if( blog.isNeedShow( blog.posts[ tid ].tags, mode ) )
 			{
-				return;
-			}				
-			
-			location.hash = "#!" + blog.posts[ tid ].path;
-			blog.updatePostContent( );
+				hasPost = true;
+				break;
+			}
+		}				
+		
+		if( hasPost == false )
+		{
+			return;
+		}				
+		
+		location.hash = "#!" + blog.posts[ tid ].path;
+		blog.updatePostContent( );
 	},
 	
 	updatePostContent : function( )
