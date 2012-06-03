@@ -324,6 +324,8 @@ var blog =
 		
 		blog.updatePostNav( $( "div.post_nav" ), data );
 		
+		$( "<div id='disqus_thread'>" ).appendTo( $post_bottom );
+		
 		//content
 		$.ajax
 		(
