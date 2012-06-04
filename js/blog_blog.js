@@ -189,6 +189,11 @@ var blog =
 	
 	initPostList : function( )
 	{
+		var a=document.getElementById('wrapper');
+		var b=document.getElementById('disqus_thread');
+		a.appendChild(b); 
+		$( '#disqus_thread' ).hide();
+		
 		$( "#main" ).html( "" );
 		var $post = $("<div class='post'>").appendTo( $("#main") );
 		$post.html( "" );
@@ -197,7 +202,7 @@ var blog =
 		var $post_content = $( "<div class='post_content'>" ).appendTo( $post );
 		$( "<hr />" ).appendTo( $post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( $post );
-		$( "<div id='disqus_thread'>" ).appendTo( $post ).hide();
+		//$( "<div id='disqus_thread'>" ).appendTo( $post ).hide();
 		
 		if(typeof(DISQUS) != "undefined") {
                 DISQUS.reset({
@@ -311,7 +316,10 @@ var blog =
 				str_tag += '[' + this + ']';
 			}
 		);		
-		$("<small>").appendTo( post ).text( str_tag ).css( { color : 'gray', float: 'right' } );
+		if( data.tags[ 0 ] != 'hide' )
+		{
+			$("<small>").appendTo( post ).text( str_tag ).css( { color : 'gray', float: 'right' } );
+		}
 			
 		$( "<hr />" ).appendTo( post );
 		$( "<div class='post_nav'>" ).appendTo( post );
@@ -322,7 +330,18 @@ var blog =
 		$( "<hr />" ).appendTo( post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
-		$( "<div id='disqus_thread'>" ).appendTo( post );
+		//$( "<div id='disqus_thread'>" ).appendTo( post );
+		var a=post[0] 
+		var b=document.getElementById('disqus_thread');
+		a.appendChild(b); 
+		if( data.tags[ 0 ] == 'hide' )
+		{
+			$( '#disqus_thread' ).hide();
+		}
+		else
+		{
+			$( '#disqus_thread' ).show();
+		}
 				
 		
 		//title
@@ -331,7 +350,14 @@ var blog =
 		$("<small>").appendTo( $t_title ).text( "[" + data.date + "]" );				
 			
 		//bottom
-		str_tag += "  |  日期：" + "[" + data.date + "]  |  ";
+		if( data.tags[ 0 ] != 'hide' )
+		{
+			str_tag += "  |  日期：" + "[" + data.date + "]  |  ";
+		}
+		else
+		{
+			str_tag = "日期：" + "[" + data.date + "]  |  ";
+		}
 		//$( "<p>" ).appendTo( $post_bottom ).text( "【阅读】【评论】【日期】" );
 		$( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } );
 		//$( "<a>" ).appendTo( $( "<p>" ).appendTo( $post_bottom ).text( str_tag ).css( { color : 'gray' } ) ).text( "【全文阅读】" ).attr( "href", "blog.html#!" + data.path );

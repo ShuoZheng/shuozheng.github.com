@@ -1,14 +1,14 @@
 [
     {
         "title": "在Github上写博客",
-        "path": "2012-01-29-write-blog-on-github",
-        "tags": ["Github", "Blog", "Markdown"],
-        "date": "2012-01-29"
+        "path": "2012-06-03-write-blog-on-github",
+        "tags": ["Github", "Blog"],
+        "date": "2012-06-03"
     },
     {
         "title": "关于",
         "path": "about",
         "tags": ["hide"],
-        "date": "2012-01-28"
+        "date": "2012-05-30"
     }
 ]
