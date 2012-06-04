@@ -197,7 +197,7 @@ var blog =
 		var $post_content = $( "<div class='post_content'>" ).appendTo( $post );
 		$( "<hr />" ).appendTo( $post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( $post );
-		$( "<div id='disqus_thread'>" ).appendTo( $post );
+		$( "<div id='disqus_thread'>" ).appendTo( $post ).hide();
 		
 		if(typeof(DISQUS) != "undefined") {
                 DISQUS.reset({

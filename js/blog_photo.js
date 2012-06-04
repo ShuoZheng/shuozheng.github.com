@@ -197,7 +197,18 @@ var blog =
 		var $post_content = $( "<div class='post_content'>" ).appendTo( $post );
 		$( "<hr />" ).appendTo( $post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( $post );
+		$( "<div id='disqus_thread'>" ).appendTo( $post ).hide();
 		
+		if(typeof(DISQUS) != "undefined") {
+                DISQUS.reset({
+                    reload : true,
+                    config : function() {                        
+                        this.page.identifier = "!";
+                        this.page.url = location.href;
+                    }
+                });
+            }
+            
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
 		$( "<a>" ).appendTo( $t_title ).text( "图片列表" );
@@ -316,6 +327,8 @@ var blog =
 		$( "<div class='post_nav'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
 		var $post_bottom = $( "<div class='post_bottom'>" ).appendTo( post );
+		$( "<hr />" ).appendTo( post );
+		$( "<div id='disqus_thread'>" ).appendTo( post );
 		
 		//title
 		var $t_title = $( "<H1>" ).appendTo( $post_title ); 
@@ -333,6 +346,16 @@ var blog =
 		$( "<p>" ).appendTo( $post_content ).text( data.info );
 		
 		blog.updatePostNav( $( "div.post_nav" ), data );
+		
+		if(typeof(DISQUS) != "undefined") {
+            DISQUS.reset({
+                reload : true,
+                config : function() {
+                    this.page.identifier = "!" + blog.current_path;
+                    this.page.url = location.href;
+                }
+            });
+        }		
 		
 		//content	
 		/*$.ajax
