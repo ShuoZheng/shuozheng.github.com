@@ -309,6 +309,11 @@ var blog =
 	
 	loadPost : function( post, data )
 	{
+		var a=document.getElementById('wrapper');
+		var b=document.getElementById('disqus_thread');
+		a.appendChild(b); 
+		$( '#disqus_thread' ).hide();
+		
 		post.html( "" );
 		var $post_title = $( "<div class='post_title'>" ).appendTo( post );
 		$( "<hr />" ).appendTo( post );
