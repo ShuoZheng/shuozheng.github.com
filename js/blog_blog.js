@@ -304,10 +304,10 @@ var blog =
 	
 	loadPost : function( post, data )
 	{
-		var a=document.getElementById('wrapper');
+		/*var a=document.getElementById('wrapper');
 		var b=document.getElementById('disqus_thread');
 		a.appendChild(b); 
-		$( '#disqus_thread' ).hide();
+		$( '#disqus_thread' ).hide();*/
 		
 		post.html( "" );
 		var $post_title = $( "<div class='post_title'>" ).appendTo( post );
@@ -482,6 +482,11 @@ var blog =
 	
 	updatePostContent : function( )
 	{
+		var a=document.getElementById('wrapper');
+		var b=document.getElementById('disqus_thread');
+		a.appendChild(b); 
+		$( '#disqus_thread' ).hide();
+		
 		var hash = location.hash;
 		blog.current_path = hash.replace(/^#/, '' ).replace(/^!/, '');
 		if(blog.current_path.length == 0 || hash.indexOf(  "!" ) < 0 ) 
