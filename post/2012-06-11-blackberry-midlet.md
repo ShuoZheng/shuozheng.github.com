@@ -112,4 +112,13 @@
         }
         
       }  
+      
+  
+  
+## 参考
+[如何将MIDlet应用移植到BlackBerry]  
+  
+
+
+[如何将MIDlet应用移植到BlackBerry]: http://mobile.51cto.com/blackberry-259429.htm 
 
