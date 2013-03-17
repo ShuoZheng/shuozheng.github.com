@@ -1,5 +1,11 @@
 [
     {
+		"title": "笔记",
+		"path": "2013-03-18-log",
+		"tags": ["log"],
+		"date": "2013-03-18"
+	},
+	{
         "title": "MIDlet应用移植BlackBerry平台的按键问题",
         "path": "2012-06-11-blackberry-midlet",
         "tags": ["Blackberry", "Blog"],
