@@ -7,7 +7,8 @@ var blog =
 	current_path: "",
 	current_index: 0,
 	current_state: "", // post/index
-	con: new Showdown.converter(),
+	//con: new Showdown.converter(),
+	con: new Showdown.converter( { extensions: [ 'github', 'prettify', 'table' ] } ),
 	tags_num: 0,
 	
 	isHashClass : function( data, name )
