@@ -1,9 +1,15 @@
 [
     {
-        "title": "安卓笔记",
+        "title": "隐藏Android的虚拟按键(设置全屏模式)",
+        "path": "2015-08-26-hide-bar",
+        "tags": ["Android"],
+        "date": "2015-08-26"
+    },
+    {
+        "title": "Android笔记",
         "path": "2015-08-26-android",
-        "tags": ["log", "Android"],
-        "date": "2013-08-26"
+        "tags": ["Android"],
+        "date": "2015-08-26"
     },
     {
         "title": "笔记",
@@ -14,13 +20,13 @@
     {
         "title": "MIDlet应用移植BlackBerry平台的按键问题",
         "path": "2012-06-11-blackberry-midlet",
-        "tags": ["Blackberry", "Blog"],
+        "tags": ["Blackberry"],
         "date": "2012-06-11"
     },
     {
         "title": "在Github上写博客",
         "path": "2012-06-03-write-blog-on-github",
-        "tags": ["Github", "Blog"],
+        "tags": ["Github"],
         "date": "2012-06-03"
     },
     {
