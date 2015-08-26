@@ -1,5 +1,11 @@
 [
     {
+        "title": "安卓笔记",
+        "path": "2015-08-26-android",
+        "tags": ["log", "Android"],
+        "date": "2013-08-26"
+    },
+    {
         "title": "笔记",
         "path": "2013-03-18-log",
         "tags": ["log"],
