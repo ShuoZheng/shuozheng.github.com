@@ -1,5 +1,11 @@
 [
     {
+        "title": "Windows下使用Beyond Compare代替Git比对和合并工具",
+        "path": "2015-09-12-setup-git-mergetool",
+        "tags": ["Git"],
+        "date": "2015-09-12"
+    },
+    {
         "title": "隐藏Android的虚拟按键(设置全屏模式)",
         "path": "2015-08-26-hide-bar",
         "tags": ["Android"],
