@@ -1,5 +1,11 @@
 [
     {
+        "title": "Windows下忽略git文件权限检查",
+        "path": "2015-09-21-git-ignore-mode-diff",
+        "tags": ["Git"],
+        "date": "2015-09-21"
+    },
+    {
         "title": "Windows下使用Beyond Compare代替Git比对和合并工具",
         "path": "2015-09-12-setup-git-mergetool",
         "tags": ["Git"],
