@@ -532,18 +532,16 @@ var blog =
 		$(window).hashchange(function() {
 			blog.updatePostContent( );
 		});
-	}	
-}
-
-$(document).ready
-(
-	function() 
-	{
-    // load post index
+	},
+  
+  initData : function() {
+     // load post index
     $.ajax({
         url : "image/index.json",
         dataType : 'json',
         success : blog.indexLoaded
     });  
-	}
-);
+  }
+  
+}
+

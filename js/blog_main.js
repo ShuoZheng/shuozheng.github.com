@@ -108,18 +108,15 @@ var blog =
 		blog.initPostIndex( );
 		blog.initMain( );
 				
-	}	
-}
-
-$(document).ready
-(
-	function() 
-	{
+	},
+  
+  initData : function() {
     // load post index
     $.ajax({
         url : "post/index.json",
         dataType : 'json',
         success : blog.indexLoaded
     });  
-	}
-);
+  }
+  
+}

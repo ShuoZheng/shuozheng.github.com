@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -35,9 +35,7 @@
 			<div id="footer"></div>
 		</div>
 		<script type="text/javascript">
-			    $( "#header" ).load( "template/head.html" );
-			    $( "#footer" ).load( "template/footer.html" );
-			    $( "#side" ).load( "template/side.html" );
+			    $( "#header" ).load( "template/head.html", function(){ $( "#footer" ).load( "template/footer.html", function(){ $( "#side" ).load( "template/side.html", function() { blog.initData(); } ); } ); } );
 		</script>
 		<script type="text/javascript" src="js/blog_main.js"></script>
 	</body>

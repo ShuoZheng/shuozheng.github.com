@@ -37,9 +37,7 @@
 		</div>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
-			    $( "#header" ).load( "template/head.html" );
-			    $( "#footer" ).load( "template/footer.html" );
-			    $( "#side" ).load( "template/side.html" );
+			    $( "#header" ).load( "template/head.html", function(){ $( "#footer" ).load( "template/footer.html", function(){ $( "#side" ).load( "template/side.html", function() { blog.initData(); } ); } ); } );
 		</script>
 		<script type="text/javascript" src="js/blog_blog.js"></script>
 		<script type="text/javascript">
