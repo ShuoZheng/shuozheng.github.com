@@ -1,5 +1,11 @@
 [
     {
+        "title": "CentOS编译安装配置XDebug",
+        "path": "2015-10-22-centos-php-xdebug-setup",
+        "tags": ["PHP","CentOS","Linux"],
+        "date": "2015-10-22"
+    },
+    {
         "title": "Windows下忽略git文件权限检查",
         "path": "2015-09-21-git-ignore-mode-diff",
         "tags": ["Git"],
