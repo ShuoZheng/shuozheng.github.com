@@ -9,6 +9,7 @@ var blog =
 	current_state: "", // post/index
 	//con: new Showdown.converter(),
 	con: new Showdown.converter( { extensions: [ 'github', 'prettify', 'table' ] } ),
+	max_load_counter: 5,
 	
 	initPostIndex : function( )
 	{
@@ -34,6 +35,7 @@ var blog =
 	{
 		$( "#main" ).html( "" );
 		
+		var $load_counter = 0;
 		$( blog.posts ).each
 		(
 			function()
@@ -42,6 +44,10 @@ var blog =
 				{
 					var $post = $("<div class='post'>").appendTo( $("#main") );
 					blog.loadPost( $post, this );
+					$load_counter += 1;
+					if( $load_counter >= blog.max_load_counter ) {
+						return false;
+					}
 				}
 			}
 		);
