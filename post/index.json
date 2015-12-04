@@ -1,5 +1,11 @@
 [
     {
+        "title": "一个看起来很简单的加密算法",
+        "path": "2015-12-05-crypt-code",
+        "tags": ["算法","加密","C++","Python"],
+        "date": "2015-12-05"
+    },
+    {
         "title": "改变Git裸仓库默认分支",
         "path": "2015-11-20-change-git-bare-repo-head",
         "tags": ["Git"],
