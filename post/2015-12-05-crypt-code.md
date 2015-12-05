@@ -77,7 +77,7 @@
 	    value_encode = encode( value_origin, i )
 	    value_decode = decode( value_encode, i )
 	    is_same = value_origin == value_decode
-	    print "i: %s, origin: %s, encode: %s, decode: %s, same: %s" % ( i, value_encode, value_encode, value_decode, is_same )
+	    print "i: %s, origin: %s, encode: %s, decode: %s, same: %s" % ( i, value_origin, value_encode, value_decode, is_same )
 	    if not is_same:
 	      error_count += 1
 	    out.append( value_encode )
