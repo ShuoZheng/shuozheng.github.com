@@ -1,5 +1,11 @@
 [
     {
+        "title": "Mac系统关闭Rootless的方法",
+        "path": "2015-12-09-disable-mac-rootless",
+        "tags": ["mac"],
+        "date": "2015-12-09"
+    },
+    {
         "title": "一个看起来很简单的加密算法",
         "path": "2015-12-05-crypt-code",
         "tags": ["算法","加密","C++","Python"],
