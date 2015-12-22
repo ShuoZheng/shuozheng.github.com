@@ -1,5 +1,11 @@
 [
     {
+        "title": "Centos 配置eth0 提示Device does not seem to be present",
+        "path": "2015-12-22-centos-network-failed",
+        "tags": ["CentOS","Linux"],
+        "date": "2015-12-22"
+    },
+    {
         "title": "Mac系统关闭Rootless的方法",
         "path": "2015-12-09-disable-mac-rootless",
         "tags": ["mac"],
