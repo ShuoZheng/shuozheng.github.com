@@ -1,5 +1,11 @@
 [
     {
+        "title": "使用vim编辑二进制文件",
+        "path": "2016-03-24-edit-binary-file-with-vim",
+        "tags": ["vim"],
+        "date": "2016-03-24"
+    },
+    {
         "title": "Centos 配置eth0 提示Device does not seem to be present",
         "path": "2015-12-22-centos-network-failed",
         "tags": ["CentOS","Linux"],
