@@ -7,7 +7,7 @@ var blog =
 	current_path: "",
 	current_index: 0,
 	current_state: "", // post/index
-	con: new Showdown.converter(),
+	con: new showdown.Converter( { tables: true, literalMidWordUnderscores: true } ),
 	tags_num: 0,
 	
 	isHashClass : function( data, name )

@@ -7,8 +7,7 @@ var blog =
 	current_path: "",
 	current_index: 0,
 	current_state: "", // post/index
-	//con: new Showdown.converter(),
-	con: new Showdown.converter( { extensions: [ 'github', 'prettify', 'table' ] } ),
+	con: new showdown.Converter( { tables: true, literalMidWordUnderscores: true } ),
 	tags_num: 0,
 	
 	isHashClass : function( data, name )
@@ -468,8 +467,25 @@ var blog =
 	{
 		var post_content = blog.con.makeHtml(data);
 		$(content).html(post_content);
-		$('pre code').each(function(i, e) {hljs.highlightBlock(e, '    ')});
-		
+		$('pre code').each(function(i, e) {
+			hljs.highlightBlock(e)
+
+			var lines = $(this).text().split('\n').length - 1;
+	        var $numbering = $('<ul/>').addClass('pre-numbering');
+	        $(this)
+	            .addClass('has-numbering')
+	            .parent()
+	            .append($numbering);
+	        for(i=1;i<=lines;i++){
+	            $numbering.append($('<li/>').addClass('pre-numbering').text(i));
+	        }
+		});
+
+		//为超链接加上target='_blank'属性
+		$('a[href^="http"]').each(function() {
+			$(this).attr('target', '_blank');
+		});
+
 		if(typeof(DISQUS) != "undefined") {
             DISQUS.reset({
                 reload : true,
