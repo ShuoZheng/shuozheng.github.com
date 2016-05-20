@@ -468,8 +468,11 @@ var blog =
 		var post_content = blog.con.makeHtml(data);
 		$(content).html(post_content);
 		$('pre code').each(function(i, e) {
+			var is_has_numbering = blog.isHashClass( this, "has-numbering" );
+			if( is_has_numbering ) {
+				return
+			}
 			hljs.highlightBlock(e)
-
 			var lines = $(this).text().split('\n').length - 1;
 	        var $numbering = $('<ul/>').addClass('pre-numbering');
 	        $(this)
@@ -479,6 +482,7 @@ var blog =
 	        for(i=1;i<=lines;i++){
 	            $numbering.append($('<li/>').addClass('pre-numbering').text(i));
 	        }
+	        $('.pre-numbering li').css("height",$(this).height()/lines);
 		});
 
 		//为超链接加上target='_blank'属性

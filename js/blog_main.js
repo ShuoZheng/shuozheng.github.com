@@ -9,6 +9,19 @@ var blog =
 	current_state: "", // post/index
 	con: new showdown.Converter( { tables: true, literalMidWordUnderscores: true } ),
 	max_load_counter: 5,
+
+	isHashClass : function( data, name )
+	{
+		var classes = data.className.split( " " );
+		for( i in classes )
+		{
+			if( classes[ i ] == name )
+			{
+				return true;
+			}
+		}
+		return false;
+	},
 	
 	initPostIndex : function( )
 	{
@@ -99,6 +112,10 @@ var blog =
 		var post_content = blog.con.makeHtml(data);
 		$(content).html(post_content);
 		$('pre code').each(function(i, e) {
+			var is_has_numbering = blog.isHashClass( this, "has-numbering" );
+			if( is_has_numbering ) {
+				return
+			}
 			hljs.highlightBlock(e)
 
 			var lines = $(this).text().split('\n').length - 1;
@@ -110,6 +127,7 @@ var blog =
 	        for(i=1;i<=lines;i++){
 	            $numbering.append($('<li/>').addClass('pre-numbering').text(i));
 	        }
+	        $('.pre-numbering li').css("height",$(this).height()/lines);
 
 		});
 		
