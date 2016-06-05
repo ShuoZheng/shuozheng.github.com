@@ -8,12 +8,15 @@ pre {
 }
 
 code {
-  display: block;
-  padding: 12px 24px;
+  //display: block;
+  padding: 0.3em 0.5em;
   overflow-y: auto;
   font-weight: 300;
   font-family: Menlo, monospace;
   font-size: 0.8em;
+  color: #f8f8f2;
+  background-color: #23241f;
+  border-radius: 3px 3px 3px 3px;
 }
 
 code.has-numbering {
