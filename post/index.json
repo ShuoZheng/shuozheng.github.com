@@ -3,7 +3,7 @@
         "title": "Centos python 2.7.9 安装OpenSSL模块",
         "path": "2016-06-16-centos-python-install-openssl",
         "tags": ["CentOS", "Linux", "Python", "Twisted"],
-        "date": "2016-06-05"
+        "date": "2016-06-16"
     },
     {
         "title": "使用py2app将python打包成mac app",
