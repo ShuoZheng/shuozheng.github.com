@@ -125,10 +125,8 @@ var blog =
 	            .parent()
 	            .append($numbering);
 	        for(i=1;i<=lines;i++){
-	            $numbering.append($('<li/>').addClass('pre-numbering').text(i));
+	            $numbering.append($('<li/>').addClass('pre-numbering').css("height",$(this).height()/lines).text(i));
 	        }
-	        $('.pre-numbering li').css("height",$(this).height()/lines);
-
 		});
 		
 	    //为超链接加上target='_blank'属性
